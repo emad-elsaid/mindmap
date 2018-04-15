@@ -4,6 +4,8 @@ module MindMapper
   # a module that must be encluded to any graph node
   # it has methods needed by the framework to render the node
   module Node
+    include ERB::Util
+
     def initialize(params = {})
       assign_params(params)
     end
@@ -30,10 +32,8 @@ module MindMapper
       self.class.name.underscore
     end
 
-    def url(args)
-      path = self.class.name.underscore.gsub('_node', '')
-      query = args.to_query
-      "#{path}?#{query}"
+    def url
+      self.class.name.underscore.gsub('_node', '')
     end
   end
 end

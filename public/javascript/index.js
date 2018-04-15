@@ -34,11 +34,20 @@ $.get("/root", function(response){
 })
 
 $(document).on('click', '.action', function(evt){
-  var element = this
+  var element = this,
+      params = $(this).data('params')
   evt.preventDefault()
   evt.stopPropagation()
 
-  $.get(this.href, function(response){
-    insertChildren(response, element)
-  })
+  $.ajax({
+    type: "POST",
+    url: this.href,
+    data: params,
+    success: function (data, text) {
+      insertChildren(data, element)
+    },
+    error: function (request, status, error) {
+      insertChildren(request.responseText, element)
+    }
+  });
 })
