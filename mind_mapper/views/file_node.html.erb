@@ -1,0 +1,10 @@
+<div class="content is-inline-block">
+  <div class="tags has-addons">
+    <span class="tag is-dark is-medium">
+      <%= name %>
+    </span>
+    <% if dir? %>
+      <a href="/file?path=<%= path %>" class="tag is-link is-medium action" data-title="<%= path %>"><i class="fas fa-eye"></i></a>
+    <% end %>
+  </div>
+</div>
