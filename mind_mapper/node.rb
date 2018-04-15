@@ -29,5 +29,11 @@ module MindMapper
     def view
       self.class.name.underscore
     end
+
+    def url(args)
+      path = self.class.name.underscore.gsub('_node', '')
+      query = args.to_query
+      "#{path}?#{query}"
+    end
   end
 end
