@@ -19,7 +19,7 @@ const insertChildren = function (content, element){
     .nextAll()
     .remove()
 
-  var title = $(element).data('title'),
+  var title = $(element).data('children-title'),
       children = childrenContainer(title, content)
 
   children.insertAfter(parentContainer)
@@ -33,7 +33,7 @@ $.get("/root", function(response){
   $('body').html(childrenContainer(null, response));
 })
 
-$(document).on('click', '.action', function(evt){
+$(document).on('click', 'a[href^="/"]', function(evt){
   var element = this,
       params = $(this).data('params')
   evt.preventDefault()

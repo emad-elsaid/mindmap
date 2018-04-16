@@ -1,10 +1,15 @@
 <div class="content is-inline-block">
   <div class="tags has-addons">
+
     <span class="tag is-dark is-medium">
       <%= name %>
     </span>
+
     <% if respond_to?(:children) %>
-      <a href="<%= url %>" class="tag is-link is-medium action" data-params="<%= html_escape(to_json) %>" data-title="<%= children_title %>"><i class="fas fa-eye"></i></a>
+      <a href="<%= url %>" class="tag is-link is-medium" data-params="<%= html_escape(to_json) %>" data-children-title="<%= children_title %>">
+        <i class="fas fa-folder"></i>
+      </a>
     <% end %>
+
   </div>
 </div>

@@ -29,12 +29,8 @@ class DirectoryNode
   private
 
   def child(file_path)
-    if File.directory?(file_path)
-      DirectoryNode.new(path: file_path)
-    elsif File.file?(file_path)
-      FileNode.new(path: file_path)
-    elsif File.symlink?(file_path)
-      FileNode.new(path: file_path)
-    end
+    return DirectoryNode.new(path: file_path) if File.directory?(file_path)
+
+    FileNode.new(path: file_path)
   end
 end

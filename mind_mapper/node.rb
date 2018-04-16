@@ -33,7 +33,7 @@ module MindMapper
     end
 
     def url
-      self.class.name.underscore.gsub('_node', '')
+      '/' + self.class.name.underscore.gsub('_node', '')
     end
   end
 end
