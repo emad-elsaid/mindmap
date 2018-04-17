@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    mindmap (0.1.0)
+      activesupport
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,6 +18,7 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.11.3)
     rack (2.0.4)
+    rake (10.5.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -19,8 +27,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
-  rack
+  bundler (~> 1.16)
+  mindmap!
+  rake (~> 10.0)
 
 BUNDLED WITH
    1.16.1
