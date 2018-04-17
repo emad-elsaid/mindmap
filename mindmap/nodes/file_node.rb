@@ -1,5 +1,5 @@
 class FileNode
-  include MindMapper::Node
+  include Mindmap::Node
 
   attr_accessor :path
 

@@ -1,6 +1,6 @@
 require 'erb'
 
-module MindMapper
+module Mindmap
   # a module that must be encluded to any graph node
   # it has methods needed by the framework to render the node
   module Node

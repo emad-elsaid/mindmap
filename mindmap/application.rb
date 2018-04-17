@@ -1,6 +1,6 @@
 require 'json'
 
-module MindMapper
+module Mindmap
   class Application
     def call(env)
       request = Rack::Request.new(env)
