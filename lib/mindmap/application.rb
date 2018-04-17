@@ -5,7 +5,7 @@ module Mindmap
     def call(env)
       request = Rack::Request.new(env)
 
-      return [200, headers, [render_page(request)]]
+      [200, headers, [render_page(request)]]
     end
 
     private
