@@ -19,17 +19,7 @@ module Mindmap
 
     # renders the node ERB view file and returns the result
     def render
-      view_paths = [
-        File.expand_path("../views/#{view}.html.erb", __FILE__),
-        File.expand_path("./views/#{view}.html.erb", Dir.pwd)
-      ]
-
-      view_path = view_paths.find { |file| File.exist?(file) }
-      raise StandardError.new("#{view} view file not found") unless view_path
-
-      view_content = File.read(view_path)
-
-      ERB.new(view_content).result(binding)
+      Renderer.render(view, binding)
     end
 
     # The path to the view file relative to the "views" directory
