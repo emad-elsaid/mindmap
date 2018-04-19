@@ -1,5 +1,7 @@
 # Mindmap
 
+[![Gem Version](https://badge.fury.io/rb/mindmap.svg)](https://badge.fury.io/rb/mindmap)
+
 Mindmap is a tiny framework to render and browser a graph like structure,
 assuming you have set of simple classes that are related to each other.
 
