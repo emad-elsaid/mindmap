@@ -3,4 +3,5 @@ $LOAD_PATH.push File.expand_path('../lib', __dir__)
 
 require 'mindmap'
 
+Mindmap::CLI.source_root(File.expand_path('../', __dir__))
 Mindmap::CLI.start(ARGV)

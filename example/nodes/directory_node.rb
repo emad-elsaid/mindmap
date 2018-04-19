@@ -12,14 +12,11 @@ class DirectoryNode
   end
 
   def children
-    entries = Dir.entries(path).sort
-    entries.reject! do |file|
-      file == '.' || file == '..'
-    end
-
-    entries.map do |file|
-      child(File.expand_path(file, path))
-    end
+    Dir
+      .entries(path)
+      .sort
+      .reject! { |file| ['.', '..'].include?(file) }
+      .map { |file| child(File.expand_path(file, path)) }
   end
 
   def view
