@@ -82,7 +82,8 @@ action.
   default it contains classes that visualize the file system.
 * public : the public directory, you can serve any files from there
 * views : that directory will hold your custom node views, if you'll use the
-  library views then you don't need that directory
+  library views then you don't need that directory, you can use jquery and bulma
+  css framework in your views as they're loaded by default.
 
 ## How to write your Nodes
 
@@ -140,7 +141,7 @@ class DirectoryNode
 end
 ```
 
-# How it works?
+## How it works?
 
 when you start the mindmap server, it loads all library code then loads the
 project nodes, it serves files from library public and project public
@@ -167,14 +168,14 @@ signal mindmap to create a `FileNode` object with the passed arguments,
 `/directory/specific_dir` will create a `Directory::SpecificDir` object...etc
 
 
-# How rendering nodes works
+## How rendering nodes works
 
 the renderer will get the view name by calling `view` method, then search for a
 file first in the project views directory then in the library directory, when
 found it'll be rendered as an ERB template with the node as a bounding context,
 so any method called in the view will be executed from the node.
 
-# How to form links in your views
+## How to form links in your views
 
 any link that points to a URL that starts with '/' is concidered an AJAX link
 and mindmap javascript will call the URL with a post request passing the
@@ -190,7 +191,7 @@ idea to print the node `children_title` in it.
 The example nodes are really simple and can give you some help in understanding
 how it works.
 
-# Root Node
+## Root Node
 
 every graph must have an entry point, `RootNode` is our entry point, this nodes
 doesn't have to have any views, an object is created from that class when the
