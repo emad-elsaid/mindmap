@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/all'
+require 'rack'
 
 Dir[File.expand_path('./mindmap/**/*.rb', __dir__)].each { |fl| require fl }
 Dir[File.expand_path('./nodes/**/*.rb', Dir.pwd)].each { |fl| require fl }
