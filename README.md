@@ -201,6 +201,19 @@ page loads, and the children will be called an rendered, so the node itself
 doesn't have to do anything but implmenting `children` method returning an array
 of nodes to start with.
 
+## Hot code reload
+
+Mindmap doesn't have a hot reload feature, so if you want to change your code
+then see the changes without restarting your server manually you can use
+[reflext](https://github.com/cespare/reflex) or any other tool that executes a
+command on files change, with reflex you can use this command
+
+    $ reflex -s rackup
+
+or
+
+    $ reflex -s mindmap server
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/emad-elsaid/mindmap.
