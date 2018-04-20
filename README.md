@@ -5,7 +5,7 @@
 Mindmap is a tiny framework to render and browser a graph like structure,
 assuming you have set of simple classes that are related to each other.
 
-# Rational
+# Rationale
 
 It started with another project I'm working on called
 [rubrowser](https://github.com/emad-elsaid/rubrowser) it statically analyse your
