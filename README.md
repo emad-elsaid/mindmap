@@ -5,6 +5,11 @@
 Mindmap is a tiny framework to render and browser a graph like structure,
 assuming you have set of simple classes that are related to each other.
 
+The following is the example project to browse filesystem, generated when issuing
+"mindmap new" command, and contains of 2 nodes (File, Directory)
+
+[![filesystem browser](https://i.imgur.com/6ZVIN0x.gif)](https://imgur.com/a/tA7iCtp)
+
 # Rationale
 
 It started with another project I'm working on called
