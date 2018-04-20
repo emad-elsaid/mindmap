@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 
 module Mindmap
@@ -13,7 +15,9 @@ module Mindmap
     # assign a hash values to params with the same name
     def assign_params(params)
       params.each do |key, value|
-        public_send("#{key}=", value) if self.class.public_method_defined?("#{key}=")
+        if self.class.public_method_defined?("#{key}=")
+          public_send("#{key}=", value)
+        end
       end
     end
 

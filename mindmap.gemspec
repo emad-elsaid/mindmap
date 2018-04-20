@@ -1,4 +1,4 @@
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mindmap/version'
 
@@ -8,8 +8,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Emad Elsaid']
   spec.email         = ['emad.elsaid@blacklane.com']
 
-  spec.summary       = 'A very specific and opinionated web framework to traverse a graph data structure'
-  spec.description   = 'A very specific and opinionated web framework to traverse a graph data structure'
+  spec.summary       = <<-SUMMARY
+  A very specific and opinionated web framework to traverse a graph data structure
+SUMMARY
+  spec.description = <<-DESC
+  A very specific and opinionated web framework to traverse a graph data structure
+DESC
   spec.homepage      = 'https://github.com/emad-elsaid/mindmap'
   spec.license       = 'MIT'
 

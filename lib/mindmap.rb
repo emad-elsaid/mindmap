@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/all'
 
 Dir[File.expand_path('./mindmap/**/*.rb', __dir__)].each { |fl| require fl }
@@ -8,13 +10,27 @@ module Mindmap
     apps = []
 
     apps.unshift Application.new
-    apps.unshift Rack::Static.new(apps.first, urls: [''], root: File.expand_path('../public', __dir__), index: 'index.html')
+    lib_public = File.expand_path('../public', __dir__)
+    apps.unshift(
+      Rack::Static.new(
+        apps.first,
+        urls: [''],
+        root: lib_public,
+        index: 'index.html'
+      )
+    )
 
+    local_public = File.expand_path('./public', Dir.pwd)
 
-    project_public = File.expand_path('./public', Dir.pwd)
-
-    if File.exist?(project_public)
-      apps.unshift Rack::Static.new(apps.first, urls: [''], root: project_public, index: 'index.html')
+    if File.exist?(local_public)
+      apps.unshift(
+        Rack::Static.new(
+          apps.first,
+          urls: [''],
+          root: local_public,
+          index: 'index.html'
+        )
+      )
     end
 
     Rack::Cascade.new(apps)
