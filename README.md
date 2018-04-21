@@ -6,7 +6,7 @@ Mindmap is a tiny framework to render and browser a graph like structure,
 assuming you have set of simple classes that are related to each other.
 
 The following is the example project to browse filesystem, generated when issuing
-"mindmap new" command, and contains of 2 nodes (File, Directory)
+"mindmap new" command, and contains 2 nodes (File, Directory)
 
 [![filesystem browser](https://i.imgur.com/6ZVIN0x.gif)](https://imgur.com/a/tA7iCtp)
 
@@ -20,7 +20,7 @@ processes and other open sockets on it, through it I can open another server in
 my network, browse through it, open a process there...and so on.
 
 Or Imagine how many times you went to wikipedia and you found yourself on a page
-and you can't remember what makes you land here after couple hours of reading.
+and you can't remember what made you land here after couple hours of reading.
 
 so I wanted a setup that does the following:
 
@@ -227,7 +227,7 @@ of nodes to start with.
 
 Mindmap doesn't have a hot reload feature, so if you want to change your code
 then see the changes without restarting your server manually you can use
-[reflext](https://github.com/cespare/reflex) or any other tool that executes a
+[reflex](https://github.com/cespare/reflex) or any other tool that executes a
 command on files change, with reflex you can use this command
 
     $ reflex -s rackup
