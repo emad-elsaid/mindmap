@@ -195,6 +195,23 @@ you wish, also `data-children-title` attribute is used by the mindmap javascript
 to use it as a title for the response when appended to the page, it's a good
 idea to print the node `children_title` in it.
 
+## Views
+
+A node can have a method `view** that returns the view name to use, mindmap comes
+with several views for different usecases, every view needs certain methods, the
+following is a list of them and what methods are needed:
+
+### Tag
+
+![tag](https://i.imgur.com/dwW1uox.png)
+
+* Name: tag
+* Methods:
+  * **name**: returns the name printed on the left hand side
+  * **children** (optional): if defined then the right hand side icon will be rendered
+  * **children_title** (optional): if children is defined then children_title must
+  be defined, it hold the title for the children container
+
 The example nodes are really simple and can give you some help in understanding
 how it works.
 
