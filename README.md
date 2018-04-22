@@ -78,6 +78,8 @@ the project contains an example nodes to browse the file system content, you can
 start the server and open `http://localhost:9292` in your browser to see it in
 action.
 
+a tutorial could be found in the wiki [here](https://github.com/emad-elsaid/mindmap/wiki/Mindmap-tutorial-(file-system-browser))
+
 ## Project structure
 
 * config.ru : a rack config file that starts mindmap application and serves
