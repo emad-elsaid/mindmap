@@ -199,7 +199,7 @@ idea to print the node `children_title` in it.
 
 ## Views
 
-A node can have a method `view** that returns the view name to use, mindmap comes
+A node can have a method `view` that returns the view name to use, mindmap comes
 with several views for different usecases, every view needs certain methods, the
 following is a list of them and what methods are needed:
 
