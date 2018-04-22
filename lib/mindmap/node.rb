@@ -12,7 +12,7 @@ module Mindmap
       assign_params(params)
     end
 
-    # assign a hash values to params with the same name
+    # assign a hash values to attributes with the same name
     def assign_params(params)
       params.each do |key, value|
         if self.class.public_method_defined?("#{key}=")
@@ -33,6 +33,7 @@ module Mindmap
       self.class.name.underscore
     end
 
+    # returns the node url that could be used for a link
     def url
       '/' + self.class.name.underscore.gsub('_node', '')
     end
