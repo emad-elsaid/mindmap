@@ -96,7 +96,7 @@ a tutorial could be found in the wiki [here](https://github.com/emad-elsaid/mind
 
 ## How to write your Nodes
 
-the `ndoes` directory holds your nodes, they're all loaded by default when
+the `nodes` directory holds your nodes, they're all loaded by default when
 starting the mindmap server, the following is a commented example for a node class
 
 ```ruby
