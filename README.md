@@ -5,21 +5,21 @@
 Mindmap is a tiny framework to render and browser a graph like structure,
 assuming you have set of simple classes that are related to each other.
 
-The following is the example project to browse filesystem, generated when issuing
+The following is the example project to browse file system, generated when issuing
 "mindmap new" command, and contains 2 nodes (File, Directory)
 
-[![filesystem browser](https://i.imgur.com/6ZVIN0x.gif)](https://imgur.com/a/tA7iCtp)
+[![file system browser](https://i.imgur.com/6ZVIN0x.gif)](https://imgur.com/a/tA7iCtp)
 
 # Rationale
 
 It started with another project I'm working on called
-[rubrowser](https://github.com/emad-elsaid/rubrowser) it statically analyse your
+[rubrowser](https://github.com/emad-elsaid/rubrowser) it statically analyze your
 ruby code and visualize it in a graph, I thought that this kind of data
 (tree/graph like) is everywhere, like my servers, that I can see files,
 processes and other open sockets on it, through it I can open another server in
 my network, browse through it, open a process there...and so on.
 
-Or Imagine how many times you went to wikipedia and you found yourself on a page
+Or Imagine how many times you went to Wikipedia and you found yourself on a page
 and you can't remember what made you land here after couple hours of reading.
 
 so I wanted a setup that does the following:
@@ -35,7 +35,7 @@ so I wanted a setup that does the following:
 
 At first I thought of D3 and visualizing these nodes and make it interactive,
 but I had to discard this idea as visualizing nodes in different forms will be
-extermily hard for users, not to mention the graph will be very crowded.
+extremely hard for users, not to mention the graph will be very crowded.
 
 So I settled on a page that renders the root node children first, then when you
 try to open a node, I append children to the page and the path goes on
@@ -86,7 +86,7 @@ a tutorial could be found in the wiki [here](https://github.com/emad-elsaid/mind
   files from the public directory in both the gem and your project, with your
   project public directory having precedence, so any file you put there will
   override the library file.
-* Gemfile : the project has only one direct depedency `mindmap`
+* Gemfile : the project has only one direct dependency `mindmap`
 * nodes : a directory that has your classes that needs to be visualized, by
   default it contains classes that visualize the file system.
 * public : the public directory, you can serve any files from there
@@ -162,14 +162,14 @@ an empty page that load jquery and bulma css framework and
 
 `index.js` is what does the interaction part of the page, it request the `root`
 node, so your `nodes` directory must contain that class, mindmap will handle the
-request, creating `RootNode` object givving it all `parameters` sent with the
+request, creating `RootNode` object giving it all `parameters` sent with the
 request as a hash, `Mindmap::Node#initializer` will assign any key value to the
 object if the `key=` method is public, then mindmap will call the node children.
 
 for every child we'll render it and return the result to the page, the page will
 append the response, then wait until you click on any link that refer to a local
-page, whe you do it'll handle the request, will request the link content with
-ajax sending the `data-params` of the link as parameters to the ajax POST
+page, when you do it'll handle the request, will request the link content with
+Ajax sending the `data-params` of the link as parameters to the Ajax POST
 request.
 
 mindmap will know the node from the page, for example requesting `/file` will
@@ -186,21 +186,21 @@ so any method called in the view will be executed from the node.
 
 ## How to form links in your views
 
-any link that points to a URL that starts with '/' is concidered an AJAX link
-and mindmap javascript will call the URL with a post request passing the
+any link that points to a URL that starts with '/' is considered an AJAX link
+and mindmap JavaScript will call the URL with a post request passing the
 `data-params` attribute as parameters in the request, so it's a good idea that
 you set some hash there that when gets assigned to the object it'll tell him
 what to do, an ID in most cases, or for our example nodes the file path, for
 others maybe UUID, by default the views will serialize the object as JSON and
 put it in the attribute, you can be selective with your views implementation if
-you wish, also `data-children-title` attribute is used by the mindmap javascript
+you wish, also `data-children-title` attribute is used by the mindmap JavaScript
 to use it as a title for the response when appended to the page, it's a good
 idea to print the node `children_title` in it.
 
 ## Views
 
 A node can have a method `view` that returns the view name to use, mindmap comes
-with several views for different usecases, every view needs certain methods, the
+with several views for different use cases, every view needs certain methods, the
 following is a list of them and what methods are needed:
 
 ### Tag
@@ -222,7 +222,7 @@ how it works.
 every graph must have an entry point, `RootNode` is our entry point, this nodes
 doesn't have to have any views, an object is created from that class when the
 page loads, and the children will be called an rendered, so the node itself
-doesn't have to do anything but implmenting `children` method returning an array
+doesn't have to do anything but implementing `children` method returning an array
 of nodes to start with.
 
 ## Hot code reload
