@@ -1,11 +1,11 @@
 const childrenContainer = function (title, content){
-  var contents = $('<div class="card">')
+  var contents = $('<div class="message is-info">')
 
   if( title ){
-    contents.append('<div class="card-header"><p class="card-header-title">'+ title +'</p></div>')
+    contents.append('<div class="message-header">'+ title +'</div>')
   }
 
-  contents.append('<div class="card-content">' + content + '</div>')
+  contents.append('<div class="message-body">' + content + '</div>')
 
   var children = $("<div>", {class: "children"}).html(contents)
 
