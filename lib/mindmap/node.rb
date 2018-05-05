@@ -3,7 +3,7 @@
 require 'erb'
 
 module Mindmap
-  # a module that must be encluded to any graph node
+  # a module that must be included to any graph node
   # it has methods needed by the framework to render the node
   module Node
     include ERB::Util
