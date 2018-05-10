@@ -22,8 +22,8 @@ module Mindmap
     end
 
     # renders the node ERB view file and returns the result
-    def render
-      Renderer.render(view, binding)
+    def render(format = :html)
+      Renderer.render("#{view}.#{format}", binding)
     end
 
     # The path to the view file relative to the "views" directory

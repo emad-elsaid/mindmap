@@ -7,17 +7,18 @@ Dir[File.expand_path('./mindmap/**/*.rb', __dir__)].each { |fl| require fl }
 Dir[File.expand_path('./nodes/**/*.rb', Dir.pwd)].each { |fl| require fl }
 
 module Mindmap
-  def self.application
+  def self.application(config = {})
     apps = []
 
-    apps.unshift Application.new
+    app_config = Config.new(config)
+    apps.unshift Application.new(app_config)
     lib_public = File.expand_path('../public', __dir__)
     apps.unshift(
       Rack::Static.new(
         apps.first,
         urls: [''],
         root: lib_public,
-        index: 'index.html'
+        index: app_config.index
       )
     )
 
@@ -29,7 +30,7 @@ module Mindmap
           apps.first,
           urls: [''],
           root: local_public,
-          index: 'index.html'
+          index: app_config.index
         )
       )
     end

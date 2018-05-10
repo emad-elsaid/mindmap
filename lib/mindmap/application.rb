@@ -4,27 +4,16 @@ require 'json'
 
 module Mindmap
   class Application
-    def call(env)
-      request = Rack::Request.new(env)
+    def initialize(config)
+      @config = config
+    end
 
-      [200, headers, [render_page(request)]]
+    def call(env)
+      Request.new(env).response
     end
 
     private
 
-    def render_page(request)
-      node_name = request.path.camelize + 'Node'
-      node_klass = node_name.constantize
-
-      params = request.params.with_indifferent_access
-      node = node_klass.new(params)
-      node.children.map(&:render).join
-    end
-
-    def headers
-      {
-        'Content-Type' => 'text/html;charset=utf-8'
-      }
-    end
+    attr_accessor :config
   end
 end

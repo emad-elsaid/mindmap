@@ -6,30 +6,45 @@ module Mindmap
   # Renders a view file from either the library views
   # or the project views with a binding
   class Renderer
-    class << self
-      def render(view, binding)
-        erb(view).result(binding)
-      end
+    def self.render(view, binding)
+      renderer_instance(view).render(binding)
+    end
 
-      private
+    def self.renderer_instance(view)
+      @renderers ||= {}
+      @renderers[view] ||= new(view)
+    end
 
-      def erb(view)
-        @erb ||= {}
-        @erb[view] ||= ERB.new(view_content(view))
-      end
+    def initialize(view)
+      @view = view
+    end
 
-      def view_content(view)
-        view_path = view_paths(view).find { |file| File.exist?(file) }
-        raise(StandardError, "#{view} view file not found") unless view_path
-        File.read(view_path)
-      end
+    def render(binding)
+      raise(StandardError, "#{view} view file not found") unless view_path
+      erb.result(binding)
+    end
 
-      def view_paths(view)
-        [
-          File.expand_path("./views/#{view}.html.erb", Dir.pwd),
-          File.expand_path("../../views/#{view}.html.erb", __dir__)
-        ]
-      end
+    private
+
+    attr_reader :view
+
+    def erb
+      @erb ||= ERB.new(view_content)
+    end
+
+    def view_content
+      File.read(view_path)
+    end
+
+    def view_path
+      view_paths.find { |file| File.exist?(file) }
+    end
+
+    def view_paths
+      [
+        File.expand_path("./views/#{view}.erb", Dir.pwd),
+        File.expand_path("../../views/#{view}.erb", __dir__)
+      ]
     end
   end
 end
