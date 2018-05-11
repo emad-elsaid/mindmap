@@ -20,7 +20,6 @@ module Mindmap
     end
 
     def render(binding)
-      raise(StandardError, "#{view} view file not found") unless view_path
       erb.result(binding)
     end
 
@@ -33,18 +32,12 @@ module Mindmap
     end
 
     def view_content
+      raise(StandardError, "#{view} not found") unless File.exist?(view_path)
       File.read(view_path)
     end
 
     def view_path
-      view_paths.find { |file| File.exist?(file) }
-    end
-
-    def view_paths
-      [
-        File.expand_path("./nodes/#{view}.erb", Dir.pwd),
-        File.expand_path("../../nodes/#{view}.erb", __dir__)
-      ]
+      @view_path ||= File.expand_path("./nodes/#{view}.erb", Dir.pwd)
     end
   end
 end

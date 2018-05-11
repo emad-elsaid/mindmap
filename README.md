@@ -1,4 +1,4 @@
-# Mindmap
+# Mindmap (Work In Progress)
 
 [![Gem Version](https://badge.fury.io/rb/mindmap.svg)](https://badge.fury.io/rb/mindmap)
 
@@ -30,8 +30,8 @@ so I wanted a setup that does the following:
   get back and take another path
 * it should be as simple as possible to generate new graph project and put my
   files in it.
-* I wanted to have ready made views, and the ability to override them and define
-  my own views.
+* I wanted to have ready made layouts, and the ability to override them and define
+  my own layouts.
 
 At first I thought of D3 and visualizing these nodes and make it interactive,
 but I had to discard this idea as visualizing nodes in different forms will be
@@ -115,12 +115,6 @@ class DirectoryNode
     File.basename(path)
   end
 
-  # children_title is the title that will be displayed on this
-  # node children container when opened
-  def children_title
-    path
-  end
-
   # it must return an array of other nodes that this node is related to
   def children
     Dir
@@ -128,15 +122,6 @@ class DirectoryNode
       .sort
       .reject! { |file| ['.', '..'].include?(file) }
       .map { |file| child(File.expand_path(file, path)) }
-  end
-
-  # returns the view ERB file name to render this node
-  # if you didn't define this method the default value will be
-  # the class name underscored, so a DirectoryNode class
-  # will be rendered using `directory_node.html.erb` template
-  # here we use a library view called tag
-  def view
-    :tag
   end
 
   private
@@ -179,7 +164,7 @@ signal mindmap to create a `FileNode` object with the passed arguments,
 ## How rendering nodes works
 
 the renderer will get the view name by calling `view` method, then search for a
-file first in the project views directory then in the library directory, when
+file in the project nodes directory, when
 found it'll be rendered as an ERB template with the node as a bounding context,
 so any method called in the view will be executed from the node.
 
@@ -195,26 +180,6 @@ put it in the attribute, you can be selective with your views implementation if
 you wish, also `data-children-title` attribute is used by the mindmap JavaScript
 to use it as a title for the response when appended to the page, it's a good
 idea to print the node `children_title` in it.
-
-## Views
-
-A node can have a method `view` that returns the view name to use, mindmap comes
-with several views for different use cases, every view needs certain methods, the
-following is a list of them and what methods are needed:
-
-### Tag
-
-![tag](https://i.imgur.com/dwW1uox.png)
-
-* Name: tag
-* Methods:
-  * **name**: returns the name printed on the left hand side
-  * **children** (optional): if defined then the right hand side icon will be rendered
-  * **children_title** (optional): if children is defined then children_title must
-  be defined, it hold the title for the children container
-
-The example nodes are really simple and can give you some help in understanding
-how it works.
 
 ## Root Node
 

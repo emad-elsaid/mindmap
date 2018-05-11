@@ -9,10 +9,6 @@ class DirectoryNode
     File.basename(path)
   end
 
-  def children_title
-    path
-  end
-
   def children
     Dir
       .entries(path)
