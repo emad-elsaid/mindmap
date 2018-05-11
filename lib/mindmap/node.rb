@@ -26,7 +26,7 @@ module Mindmap
       Renderer.render("#{view}.#{format}", binding)
     end
 
-    # The path to the view file relative to the "views" directory
+    # The path to the view file relative to the "nodes" directory
     # by default the file is the class name underscored e.g
     # if node class is `Graph::NodeName` it returns `graph/node_name`
     def view

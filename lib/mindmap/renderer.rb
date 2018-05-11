@@ -42,8 +42,8 @@ module Mindmap
 
     def view_paths
       [
-        File.expand_path("./views/#{view}.erb", Dir.pwd),
-        File.expand_path("../../views/#{view}.erb", __dir__)
+        File.expand_path("./nodes/#{view}.erb", Dir.pwd),
+        File.expand_path("../../nodes/#{view}.erb", __dir__)
       ]
     end
   end

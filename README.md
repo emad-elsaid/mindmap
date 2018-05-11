@@ -64,8 +64,7 @@ example/
 │   ├── directory_node.rb
 │   ├── file_node.rb
 │   └── root_node.rb
-├── public
-└── views
+└── public
 
 3 directories, 5 files
 ```
@@ -88,10 +87,10 @@ a tutorial could be found in the wiki [here](https://github.com/emad-elsaid/mind
   override the library file.
 * Gemfile : the project has only one direct dependency `mindmap`
 * nodes : a directory that has your classes that needs to be visualized, by
-  default it contains classes that visualize the file system.
+  default it contains classes that visualize the file system, it also holds the
+  views for these classes in `class_name.html.erb` format or other formats
+  wanted like `class_name.json.erb` or similar
 * public : the public directory, you can serve any files from there
-* views : that directory will hold your custom node views, if you'll use the
-  library views then you don't need that directory, you can use jquery and bulma
   css framework in your views as they're loaded by default.
 
 ## How to write your Nodes
