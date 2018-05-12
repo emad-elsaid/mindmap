@@ -17,10 +17,6 @@ class DirectoryNode
       .map { |file| child(File.expand_path(file, path)) }
   end
 
-  def view
-    :tag
-  end
-
   private
 
   def child(file_path)

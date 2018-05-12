@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class RootNode < DirectoryNode
-  def initialize(*)
-    super(path: '/')
+class RootNode
+  include Mindmap::Node
+
+  def children
+    [DirectoryNode.new(path: '/')]
   end
 end

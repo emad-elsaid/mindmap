@@ -8,8 +8,4 @@ class FileNode
   def name
     File.basename(path)
   end
-
-  def view
-    :tag
-  end
 end
