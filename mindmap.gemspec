@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'mindmap'
   spec.version       = Mindmap::VERSION
   spec.authors       = ['Emad Elsaid']
-  spec.email         = ['emad.elsaid@blacklane.com']
+  spec.email         = ['emad.elsaid.hamed@gmail.com']
 
   spec.summary       = <<-SUMMARY
   A very specific and opinionated web framework to traverse a graph data structure
@@ -27,6 +27,6 @@ DESC
   spec.add_dependency 'activesupport'
   spec.add_dependency 'rack'
   spec.add_dependency 'thor'
-  spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'bundler', '~> 2.2'
   spec.add_development_dependency 'rake', '~> 10.0'
 end
